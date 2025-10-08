@@ -40,3 +40,17 @@ def task4():
         print(x, end=" ")
     print()  
 task4()
+
+def fibonacci(n):
+    a, b = 0, 1
+    count = 0
+    while count < n:
+        yield a
+        a, b = b, a + b
+        count += 1
+def task5():
+    print("Первые 5 чисел Фибоначчи:")
+    for num in fibonacci(5):
+        print(num, end=" ")
+task5()
+
