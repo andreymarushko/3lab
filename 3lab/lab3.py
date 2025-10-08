@@ -127,3 +127,19 @@ def task7():
     print(f"Умножение: {frac1} * {frac2} = {multiplication}")
     print(f"Деление: {frac1} / {frac2} = {division}")
 task7()
+
+from datetime import datetime
+def task8():
+    t = datetime.now()
+    
+    print("Текущая дата и время:")
+    print(f"Полная дата и время: {t}")
+    print(f"Только дата: {t.date()}")
+    print(f"Только время: {t.time()}")
+    
+    print("\nАльтернативные форматы:")
+    print(f"Дата (ISO формат): {t.date().isoformat()}")
+    print(f"Время (ISO формат): {t.time().isoformat('seconds')}")
+    
+    return t
+task8()
