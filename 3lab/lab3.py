@@ -10,3 +10,33 @@ def task2():
     print("Четные числа от 1 до 19:", even_numbers)
     return even_numbers
 task2()
+
+def task3():
+    words = ["python", "Java", "c++", "Rust", "go"]
+    filtered_words = [word.upper() for word in words if len(word) > 3]
+    print("Исходный список:", words)
+    print("Слова в верхнем регистре длиннее 3 символов:", filtered_words)
+    return filtered_words
+task3()
+
+class Countdown:
+    def __init__(self, n):
+        self.n = n
+        self.current = n
+    
+    def __iter__(self):
+        return self
+    
+    def __next__(self):
+        if self.current < 1:
+            raise StopIteration
+        value = self.current
+        self.current -= 1
+        return value
+
+def task4():
+    print("Обратный отсчет от 5:")
+    for x in Countdown(6):
+        print(x, end=" ")
+    print()  
+task4()
