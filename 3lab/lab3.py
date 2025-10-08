@@ -165,3 +165,23 @@ def task9():
     print(f"Дней до следующего дня рождения: {days_to_birthday} дней")
     return days_passed, days_to_birthday
 task9()
+
+def format_datetime(dt):
+    months = {
+        1: "января", 2: "февраля", 3: "марта", 4: "апреля",
+        5: "мая", 6: "июня", 7: "июля", 8: "августа",
+        9: "сентября", 10: "октября", 11: "ноября", 12: "декабря"
+    }
+    
+    #Форматируем время(05:30 вместо 5:30)
+    time_str = dt.strftime("%H:%M")
+    
+    return f"Сегодня {dt.day} {months[dt.month]} {dt.year} года, время: {time_str}"
+
+def task10():
+    now = datetime.now()
+    formatted = format_datetime(now)
+    print("Текущая дата и время:")
+    print(formatted)
+    return formatted
+task10()
