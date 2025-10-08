@@ -128,7 +128,7 @@ def task7():
     print(f"Деление: {frac1} / {frac2} = {division}")
 task7()
 
-from datetime import datetime
+from datetime import datetime, date
 def task8():
     t = datetime.now()
     
@@ -143,3 +143,25 @@ def task8():
     
     return t
 task8()
+
+def task9():
+    birth_date = date(2005, 6, 17) 
+    
+    today = date.today()
+    
+    days_passed = (today - birth_date).days
+    
+    next_birthday = date(today.year, birth_date.month, birth_date.day)
+    
+    if next_birthday < today:
+        next_birthday = date(today.year + 1, birth_date.month, birth_date.day)
+
+    days_to_birthday = (next_birthday - today).days
+
+    print(f"Дата рождения: {birth_date}")
+    print(f"Сегодняшняя дата: {today}")
+    print(f"Дней прошло с рождения: {days_passed} дней")
+    print(f"Следующий день рождения: {next_birthday}")
+    print(f"Дней до следующего дня рождения: {days_to_birthday} дней")
+    return days_passed, days_to_birthday
+task9()
