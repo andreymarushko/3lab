@@ -54,3 +54,56 @@ def task5():
         print(num, end=" ")
 task5()
 
+from decimal import Decimal, getcontext
+def deposit_calculator():
+    print("\n=== Задание 6 ===")
+    # Устанавливаем точность вычислений
+    getcontext().prec = 10
+    
+    # Ввод данных
+    print("Введите параметры вклада:")
+    initial_amount = Decimal(input("Начальная сумма вклада (руб.): "))
+    interest_rate = Decimal(input("Годовая процентная ставка (%): "))
+    years = Decimal(input("Срок вклада (лет): "))
+    
+    # Расчет по формуле: S = P × (1 + r/(12×100))^(12×t)
+    monthly_rate = interest_rate / (12 * 100)
+    months = years * 12
+    final_amount = initial_amount * (1 + monthly_rate) ** months
+    
+    # Округляем до копеек (2 знака после запятой)
+    final_amount = final_amount.quantize(Decimal('0.01'))
+    profit = final_amount - initial_amount
+    
+    # Вывод результатов
+    print("\nРезультаты расчета:")
+    print(f"Начальная сумма: {initial_amount} руб.")
+    print(f"Процентная ставка: {interest_rate}% годовых")
+    print(f"Срок вклада: {years} лет")
+    print(f"Итоговая сумма: {final_amount} руб.")
+    print(f"Общая прибыль: {profit} руб.")
+    
+    return final_amount, profit
+
+def task6():
+    print("Пример расчета вклада:")
+
+    initial_amount = Decimal('100000.50')  
+    interest_rate = Decimal('7.5')         
+    years = Decimal('3')                   
+    
+    getcontext().prec = 10
+    monthly_rate = interest_rate / (12 * 100)
+    months = years * 12
+    final_amount = initial_amount * (1 + monthly_rate) ** months
+    final_amount = final_amount.quantize(Decimal('0.01'))
+    profit = final_amount - initial_amount
+    
+    print(f"Начальная сумма: {initial_amount} руб.")
+    print(f"Процентная ставка: {interest_rate}% годовых")
+    print(f"Срок вклада: {years} лет")
+    print(f"Итоговая сумма: {final_amount} руб.")
+    print(f"Общая прибыль: {profit} руб.")
+    
+    return final_amount, profit
+task6()
