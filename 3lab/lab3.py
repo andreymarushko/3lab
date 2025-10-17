@@ -88,7 +88,7 @@ def deposit_calculator():
 def task6():
     print("Пример расчета вклада:")
 
-    initial_amount = Decimal('100000.50')  
+    initial_amount = Decimal('200000.50')  
     interest_rate = Decimal('7.5')         
     years = Decimal('3')                   
     
