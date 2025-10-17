@@ -1,4 +1,4 @@
-# 1. Декоратор логирования
+
 
 def logger(func):
     def wrapper(*args, **kwargs):
