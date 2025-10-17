@@ -2,19 +2,18 @@
 
 def logger(func):
     def wrapper(*args, **kwargs):
-        # Перед вызовом функции
+        
         print(f"Вызов функции {func.__name__} с аргументами {args} и {kwargs}")
         
-        # Выполнение функции
+        
         result = func(*args, **kwargs)
         
-        # После выполнения функции
+      
         print(f"Функция {func.__name__} вернула {result}")
         
         return result
     return wrapper
 
-# Применение декоратора к функциям
 
 @logger
 def add(a, b):
@@ -31,7 +30,6 @@ def greet(name):
     return f"Привет, {name}!"
 
 
-# 2. Декоратор доступа
 
 def require_role(allowed_roles):
     def decorator(func):
@@ -44,7 +42,6 @@ def require_role(allowed_roles):
         return wrapper
     return decorator
 
-# Пример использования декоратора доступа
 
 @require_role(['admin'])
 def delete_database(user):
@@ -55,7 +52,7 @@ def edit_settings(user):
     print(f"Настройки изменены пользователем {user['name']}")
 
 
-# Тестирование
+
 
 print("=== Тестирование декоратора логирования ===")
 print("add(5, 3):")
@@ -72,7 +69,6 @@ greet('Анна')
 
 print("\n=== Тестирование декоратора доступа ===")
 
-# Создание пользователей с разными ролями
 users = [
     {'name': 'Иван', 'role': 'admin'},
     {'name': 'Мария', 'role': 'manager'},
@@ -80,7 +76,6 @@ users = [
     {'name': 'Анна', 'role': 'guest'}
 ]
 
-# Тестирование функций с разными пользователями
 for user in users:
     print(f"\nПользователь: {user['name']} (роль: {user['role']})")
     delete_database(user)
